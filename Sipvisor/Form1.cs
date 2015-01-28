@@ -18,14 +18,15 @@ namespace Sipvisor
             this.label5.Text = "";
         }
 
-        //Variables for answers
-
         private int answerOne;
         private int answerTwo;
         private int answerThree;
         private int answerFour;
+        private int answerFive;
+        private int answerSix;
+        
+        // !!! Добавить новую переменную
 
-        //Converting position of checked boxes into int variables created above
 
         private void gatherAnswers()
         {
@@ -45,22 +46,33 @@ namespace Sipvisor
             {
                 answerFour = indexChecked;
             }
+            foreach (int indexChecked in checkedListBox5.CheckedIndices)
+            {
+                answerFive = indexChecked;
+            }
+            foreach (int indexChecked in checkedListBox6.CheckedIndices)
+            {
+                answerSix = indexChecked;
+            }
+            // !!! Добавить foreach с {} чтобы переводить галочки в цифры
         }
 
-        //Chooses advices by answers
 
         private void displayAdvice()
         {
 
-            string[] minAdvice = { "Увеличивайте ассортимент продукции", "Расширяйте ассортимент продукции", "Старайтесь соблюдать законы", "Следите за продукцией конкурентов" };
-            string[] maxAdvice = { "Занимайте свободные сегменты рынка", "Модернизируйте производство", "Возьмите кредит на развитие", "Следуйте вкусам потребителей" };
+            string[] minAdvice = { "Увеличивайте ассортимент продукции", "Увеличивайте ассортимент продукции", "Старайтесь соблюдать законы", "Следите за продукцией конкурентов", "Повысить зарплату","Старайтесь повысить репутацию" };
+            string[] maxAdvice = { "Занимайте свободные сегменты рынка", "Модернизируйте производство", "Возьмите кредит на развитие", "Следуйте вкусам потребителей", "Расширяйте объём производства", "Откройте филиал" };
+            // !!! Добавить максимальный и минимальный советы
 
-            int[] answers = { answerOne, answerTwo, answerThree, answerFour };
-            
+            int[] answers = { answerOne, answerTwo, answerThree, answerFour, answerFive,answerSix };
+            // !!! Добавить новую перменную в массив Answers
+
             int[] minAdviceToChoose = { 0, 5 }; //number, value
             int[] maxAdviceToChoose = { 0, 0 }; //number, value
 
-            for (int answerNumber = 0; answerNumber < 4; answerNumber++)
+            for (int answerNumber = 0; answerNumber < 6; answerNumber++)
+                // !!! Увеличить ццфру, она должна соответствовать числу вопросов
             {
                 if (minAdviceToChoose[1] > answers[answerNumber])
                 {
@@ -93,7 +105,6 @@ namespace Sipvisor
         }
 
 
-        //Uncheck other boxes on check
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             for (int itemToUncheck = 0; itemToUncheck < checkedListBox1.Items.Count; itemToUncheck++)
@@ -125,5 +136,29 @@ namespace Sipvisor
                 checkedListBox4.SetItemChecked(itemToUncheck, false);
             }
         }
+
+        private void checkedListBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int itemToUncheck = 0; itemToUncheck < checkedListBox5.Items.Count; itemToUncheck++)
+            {
+                checkedListBox5.SetItemChecked(itemToUncheck, false);
+            }
+        }
+
+        private void checkedListBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int itemToUncheck = 0; itemToUncheck < checkedListBox5.Items.Count; itemToUncheck++)
+            {
+                checkedListBox5.SetItemChecked(itemToUncheck, false);
+            }
+        }
+        
+        // !!! Добавить проверку для нового вопроса, чтобы была только одна галочка в ответах
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
