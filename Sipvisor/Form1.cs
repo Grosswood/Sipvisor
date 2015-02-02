@@ -25,6 +25,7 @@ namespace Sipvisor
         private int answerFive;
         private int answerSix;
         
+        //New comment
         // !!! Добавить новую переменную
 
 
