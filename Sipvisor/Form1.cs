@@ -160,5 +160,13 @@ namespace Sipvisor
 
         }
 
+        private void checkedListBox5_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            for (int itemToUncheck = 0; itemToUncheck < checkedListBox5.Items.Count; itemToUncheck++)
+            {
+                checkedListBox5.SetItemChecked(itemToUncheck, false);
+            }
+        }
+
     }
 }

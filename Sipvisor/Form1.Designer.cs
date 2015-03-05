@@ -229,6 +229,7 @@
             this.checkedListBox5.Name = "checkedListBox5";
             this.checkedListBox5.Size = new System.Drawing.Size(236, 21);
             this.checkedListBox5.TabIndex = 19;
+            this.checkedListBox5.SelectedIndexChanged += new System.EventHandler(this.checkedListBox5_SelectedIndexChanged_1);
             // 
             // label10
             // 
